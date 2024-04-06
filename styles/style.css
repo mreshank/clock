@@ -1,0 +1,205 @@
+/* ~ - ~ - ~ Root Styles ~ - ~ - ~ */
+
+:root {
+    --primary-color: rgb(255, 245, 0);
+    --default-text-color: white;
+    --active-color: rgb(23, 27, 33);
+    --active-color: rgb(38, 44, 52);
+    --primary-background: rgb(14, 17, 22);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    background-color: var(--primary-background);
+}
+
+/* ~ - ~ - ~ Tabs / Options ~ - ~ - ~ */
+
+.tab {
+    cursor: pointer;
+    color: var(--primary-color);
+    background-color: var(--active-color);
+}
+.active-tab {
+    font-weight: 700;
+    opacity: 0.925;
+    color: var(--active-color);
+    scale: 1.125;
+    background-color: var(--primary-color);
+}
+
+/* ~ - ~ - ~ Main Section ~ - ~ - ~ */
+
+main {
+    min-width: fit-content;
+    width: 100%;
+    max-width: 100vh;
+    min-height: fit-content;
+    height: auto;
+}
+
+/* ~ - ~ - ~ Common Controls ~ - ~ - ~ */
+
+@keyframes clickedAnim {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.025); }
+    100% { transform: scale(1); }
+}
+button {
+    width: 34%;
+    margin-inline: 5%;
+}
+img {
+    width: 100%;
+}
+.btn {
+    box-shadow: none !important;
+}
+input:hover, input:active, .btn:hover, .btn:active {
+    animation: clickedAnim 0.5s ease-out;
+}
+
+/* ~ - ~ - ~ Timer Tab ~ - ~ - ~ */
+
+#countDown {
+    min-width: 50vmin;
+    width: 50vmin; 
+    min-height: 50vmin; 
+    height: 50vmin;
+    overflow: hidden;
+    transition: "all .7s";
+    background: conic-gradient(var(--primary-color) 0%, 0, grey );
+}
+#timer { 
+    min-width: 94%;
+    min-height: 94%;
+    z-index: 1; 
+    border-radius: 100%;
+    color: var(--primary-color);
+    background-color: var(--primary-background);
+}
+#countDownOverlay {
+    width: 112%;
+    height: 112%;
+    background: repeating-conic-gradient(transparent 0 0.9deg, var(--primary-background) 0.25deg 2.25deg); 
+    background-position: center;
+    background-size: cover;
+}
+#timerControls {
+    z-index: 2;
+    padding-bottom: 18%;
+}
+#timerInput {
+    border-radius: 24px;
+    color: var(--primary-color);
+    font-size: xx-large;
+    background-color: var(--active-color);
+}
+input[type="number"], input[type="number"]:hover {
+    width: 60px;
+    max-width: fit-content;
+    color: var(--primary-color);
+    background-color: var(--primary-background);
+}
+input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+}
+@media screen and (max-width: 576px) {
+    #countDown {
+        min-width: 80vmin; 
+        min-height: 80vmin; 
+    }
+    button {
+        width: 26%;
+        margin-inline: 1.25%;
+    }
+}
+
+/* ~ - ~ - ~ StopWatch Tab ~ - ~ - ~ */
+
+#forwardTimer {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/*  ~ - ~ - ~ Alarm Tab ~ - ~ - ~ */
+
+#alarmTab {
+    width: 100%;
+}
+input[type="time"], input[type="time"]:active {
+    width: 75%;
+    max-width: 42vmin;
+    padding: 0.5vmin;
+    border-radius: 14px;
+    outline: none;
+    color: var(--primary-color);
+    background-color: var(--active-color);
+}
+::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-ampm-field {
+    background-color: var(--primary-background);
+    padding: 1vmin 1vmin;
+    border-radius: 8px !important;
+}
+#setAlarm {
+    min-width: 8vmin;
+    width: 8vmin; 
+    min-height: 8vmin; 
+    height: 8vmin;
+}
+.alarmItem {
+    width: 50%;
+    border-radius: 14px;
+    color: var(--primary-color);
+    background-color: var(--active-color);
+}
+#setAlarm {
+    scale: 1.25;
+    border-radius: 100%;
+}
+.alarmItem img {
+    cursor: pointer;
+    width: fit-content;
+    height: 2.25rem;
+}
+h4 {
+    height: 100%;
+}
+@media screen and (max-width: 576px) { 
+    #setAlarm {
+        min-width: 14vmin;
+        width: 14vmin; 
+        min-height: 14vmin; 
+        height: 14vmin;
+    }
+    input[type="time"], input[type="time"]:active { 
+        max-width: 100%;
+        padding-block: 2vmin;
+    }
+    .alarmItem {
+        width: 65%;
+    }
+}
+
+/* ~ - ~ - ~ Alert Settings ~ - ~ - ~ */
+
+.alertPopUp {
+    top: 50%;
+    border-radius: 28px;
+    transform: translate(0, -50%);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 100vmax rgba(0, 0, 0, 0.45);
+    color: var(--primary-color);
+    background-color: var(--active-color);
+}
+.closeAlert {
+    scale: 1.25;
+}
